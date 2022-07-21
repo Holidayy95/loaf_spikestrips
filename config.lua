@@ -34,7 +34,7 @@ Config = {
 }
 
 Strings = {
-    ["remove_stinger"] = "~INPUT_CONTEXT~ ~r~Remove ~s~spikestrip",
+    ["remove_stinger"] = "[E] Remove Spikestrip",
     ["not_police"] = "You are not a police officer and can therefore not access this menu.",
 
     ["menu_label"] = "Spikestrip menu",
