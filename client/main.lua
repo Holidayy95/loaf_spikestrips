@@ -111,11 +111,17 @@ CreateThread(function()
         while true do
             Wait(500)
             if (isPolice or not Config.RequireJobRemove) and IsPedOnFoot(PlayerPedId()) then
-                while (isPolice or not Config.RequireJobRemove) and DoesEntityExist(closestStinger) and closestStingerDistance <= 4.0 and IsPedOnFoot(PlayerPedId()) do
+                while (isPolice or not Config.RequireJobRemove) and DoesEntityExist(closestStinger) and closestStingerDistance <= 3.0 and IsPedOnFoot(PlayerPedId()) do
                     Wait(0)
-                    HelpText(Strings["remove_stinger"], true)
+                    if closestStingerDistance <= 3.0 then
+                        exports['qb-core']:DrawText(Strings["remove_stinger"], 'left')
+                    else
+                        exports['qb-core']:HideText()
+                    end
+                    -- HelpText(Strings["remove_stinger"], true)
                     if IsControlJustReleased(0, 51) then
                         RemoveStinger()
+                        exports['qb-core']:HideText()
                     end
                 end
             end
